@@ -106,6 +106,7 @@ def read_qrels(qrels_file):
 
 def get_formatted_query_passage(queries, retrieval_results, qid, searcher):
     '''
+    
 
     :param queries:
     :param retrieval_results:
