@@ -2,10 +2,10 @@ from typing import List, Union, Optional, Mapping, Any
 from copy import deepcopy
 import abc
 
-from pyserini.search import JLuceneSearcherResult
+# from pyserini.search import JLuceneSearcherResult
 
 
-__all__ = ['Query', 'Text', 'Reranker', 'hits_to_texts', 'TextType']
+__all__ = ['Query', 'Text', 'Reranker', 'TextType']
 
 
 TextType = Union['Query', 'Text']
@@ -90,24 +90,24 @@ class Reranker:
         pass
 
 
-def hits_to_texts(hits: List[JLuceneSearcherResult], field='raw') -> List[Text]:
-    """Converts hits from Pyserini into a list of texts.
-
-     Parameters
-     ----------
-     hits : List[JLuceneSearcherResult]
-        The hits.
-     field : str
-        Field to use.
-
-     Returns
-     -------
-     List[Text]
-         List of texts.
-     """
-    texts = []
-    for i in range(0, len(hits)):
-        t = hits[i].raw if field == 'raw' else hits[i].contents
-        metadata = {'raw': hits[i].raw, 'docid': hits[i].docid}
-        texts.append(Text(t, metadata, hits[i].score))
-    return texts
+# def hits_to_texts(hits: List[JLuceneSearcherResult], field='raw') -> List[Text]:
+#     """Converts hits from Pyserini into a list of texts.
+#
+#      Parameters
+#      ----------
+#      hits : List[JLuceneSearcherResult]
+#         The hits.
+#      field : str
+#         Field to use.
+#
+#      Returns
+#      -------
+#      List[Text]
+#          List of texts.
+#      """
+#     texts = []
+#     for i in range(0, len(hits)):
+#         t = hits[i].raw if field == 'raw' else hits[i].contents
+#         metadata = {'raw': hits[i].raw, 'docid': hits[i].docid}
+#         texts.append(Text(t, metadata, hits[i].score))
+#     return texts
